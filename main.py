@@ -25,7 +25,7 @@ class Tarea(BaseModel):
 
 tareas: List[Tarea] = [
     Tarea(id=1, titulo="Subir código a GitHub", descripcion="Repositorio lab4-puce con main.py, index.html y vercel.json", completada=False),
-    Tarea(id=2, titulo="Conectar dominio a Vercel", descripcion="Configurar DNS y probar URL pública", completada=False),
+    Tarea(id=2, titulo="Conectar dominio a Vercel", descripcion="Configurar despliegue y probar URL pública", completada=False),
     Tarea(id=3, titulo="Implementar búsqueda paralela", descripcion="ThreadPoolExecutor con 2, 4 y 8 hilos", completada=True),
     Tarea(id=4, titulo="Crear API REST con FastAPI", descripcion="Endpoints CRUD completos y CORS habilitado", completada=True)
 ]
@@ -34,15 +34,19 @@ tareas: List[Tarea] = [
 def inicio():
     return {
         "mensaje": "API Distribuida - Laboratorio IV",
-        "documentacion": "/docs",
-        "endpoint_tareas": "/tareas"
+        "endpoint": "/api/tareas",
+        "documentacion": "/docs"
     }
 
-@app.get("/tareas")
+# ==============================
+# ENDPOINTS CON /api/tareas
+# ==============================
+
+@app.get("/api/tareas")
 def listar_tareas():
     return tareas
 
-@app.post("/tareas", status_code=201)
+@app.post("/api/tareas", status_code=201)
 def crear_tarea(tarea: Tarea):
     nuevo_id = max([t.id for t in tareas], default=0) + 1
     tarea.id = nuevo_id
@@ -52,14 +56,14 @@ def crear_tarea(tarea: Tarea):
         "tarea": tarea
     }
 
-@app.get("/tareas/{tarea_id}")
+@app.get("/api/tareas/{tarea_id}")
 def obtener_tarea(tarea_id: int):
     for tarea in tareas:
         if tarea.id == tarea_id:
             return tarea
     raise HTTPException(status_code=404, detail="Tarea no encontrada")
 
-@app.put("/tareas/{tarea_id}")
+@app.put("/api/tareas/{tarea_id}")
 def actualizar_tarea(tarea_id: int, tarea_actualizada: Tarea):
     for i, tarea in enumerate(tareas):
         if tarea.id == tarea_id:
@@ -71,7 +75,7 @@ def actualizar_tarea(tarea_id: int, tarea_actualizada: Tarea):
             }
     raise HTTPException(status_code=404, detail="Tarea no encontrada")
 
-@app.patch("/tareas/{tarea_id}/completar")
+@app.patch("/api/tareas/{tarea_id}/completar")
 def cambiar_estado_tarea(tarea_id: int):
     for tarea in tareas:
         if tarea.id == tarea_id:
@@ -82,7 +86,7 @@ def cambiar_estado_tarea(tarea_id: int):
             }
     raise HTTPException(status_code=404, detail="Tarea no encontrada")
 
-@app.delete("/tareas/{tarea_id}")
+@app.delete("/api/tareas/{tarea_id}")
 def eliminar_tarea(tarea_id: int):
     for i, tarea in enumerate(tareas):
         if tarea.id == tarea_id:
