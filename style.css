@@ -1,0 +1,138 @@
+* {
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    margin: 0;
+    background: #101014;
+    color: #f5f5f5;
+}
+
+.contenedor {
+    width: 90%;
+    max-width: 1100px;
+    margin: 40px auto;
+}
+
+.etiqueta {
+    display: inline-block;
+    border: 1px solid #7b61ff;
+    color: #9d86ff;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 13px;
+    letter-spacing: 2px;
+}
+
+h1 {
+    font-size: 44px;
+    margin-bottom: 5px;
+}
+
+h1 span {
+    color: #8a6cff;
+}
+
+.subtitulo {
+    color: #8f8f9b;
+    font-size: 20px;
+}
+
+.api {
+    color: #54e6a5;
+    font-family: monospace;
+}
+
+.estadisticas {
+    display: flex;
+    gap: 50px;
+    background: #191920;
+    border: 1px solid #333342;
+    border-radius: 14px;
+    padding: 25px 35px;
+    margin: 30px 0;
+}
+
+.estadisticas h2 {
+    margin: 0;
+    color: #8a6cff;
+    font-size: 30px;
+}
+
+.estadisticas p {
+    margin: 5px 0 0;
+    color: #8f8f9b;
+}
+
+.formulario,
+.lista {
+    background: #191920;
+    border: 1px solid #333342;
+    border-radius: 14px;
+    padding: 25px;
+    margin-bottom: 25px;
+}
+
+h3 {
+    text-transform: uppercase;
+    color: #8f8f9b;
+    font-size: 13px;
+    letter-spacing: 3px;
+}
+
+input {
+    width: 45%;
+    padding: 16px;
+    margin: 10px 10px 15px 0;
+    border-radius: 8px;
+    border: none;
+    font-size: 16px;
+}
+
+button {
+    background: #7b61ff;
+    color: white;
+    border: none;
+    padding: 14px 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+button:hover {
+    opacity: 0.85;
+}
+
+.tarea {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #22222c;
+    border: 1px solid #333342;
+    border-radius: 10px;
+    padding: 15px 20px;
+    margin-bottom: 12px;
+}
+
+.tarea h4 {
+    margin: 0 0 5px;
+}
+
+.tarea p {
+    margin: 0;
+    color: #9a9aa5;
+}
+
+.tarea small {
+    color: #666;
+}
+
+.tarea.completada {
+    opacity: 0.5;
+    text-decoration: line-through;
+}
+
+.acciones button {
+    margin-left: 8px;
+}

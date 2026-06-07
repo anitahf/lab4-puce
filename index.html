@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Tareas - Lab IV</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <main class="contenedor">
+        <section class="encabezado">
+            <p class="etiqueta">LAB IV · PUCE · CIENCIA DE DATOS</p>
+            <h1>Gestión de <span>Tareas</span></h1>
+            <p class="subtitulo">Aplicación distribuida · Frontend + API REST</p>
+            <p class="api">● /api/tareas</p>
+        </section>
+
+        <section class="estadisticas">
+            <div>
+                <h2 id="total">0</h2>
+                <p>Total</p>
+            </div>
+            <div>
+                <h2 id="pendientes">0</h2>
+                <p>Pendientes</p>
+            </div>
+            <div>
+                <h2 id="completadas">0</h2>
+                <p>Completadas</p>
+            </div>
+        </section>
+
+        <section class="formulario">
+            <h3>Nueva tarea</h3>
+            <input type="text" id="titulo" placeholder="Título">
+            <input type="text" id="descripcion" placeholder="Descripción">
+            <button onclick="crearTarea()">+ Crear tarea</button>
+        </section>
+
+        <section class="lista">
+            <h3>Tareas registradas</h3>
+            <div id="tareas"></div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
